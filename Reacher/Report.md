@@ -2,28 +2,23 @@
 
 ## First steps
 I started out with a vanilla Deep Deterministic Policy Gradient (DDPG) agent from [Udacity Deep Learning Nanodegree repository](https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-bipedal) for OpenAI Gym's BipedalWalker environment. 
-Actor and Critc networks have two hidden layers comprised of 64 nodes each. 
-To follow the examples you have to execute the python notebook [Continuous_Control.ipynb](Continuous_Control.ipynb). The agent is implemented in [ddpg.py](ddpg.py) which in turn needs [model.py](model.py) to define the network.
-At the end of the notebook there is a cell to execute the last agent saved in the **last_actor.pth** file.
 
-With the following hyper parameters the 'vanilla' agent learn the task in **375** episodes:
-**2 hidden layers of 128 and 256 nodes, batch size= 64, learning rate= 5e-4, discount factor= 0.99, epsilon start= 1.0, epsilon end= 0.01, target updates= 4 steps**.
+To follow this project you can execute the python notebook [Continuous_Control.ipynb](Continuous_Control.ipynb). The agent is implemented in [ddpg.py](ddpg.py) which in turn needs [model.py](model.py) to define the network.
+At the end of the notebook there is a cell to execute the last agent saved in the **last_actor.pth** file as well as a cell to compare diferent configurations in the same plot.
+
+I have reduced the number of fully connected layers from 3 to 2 in the definition of the critic to reduce complexity and gain a bit in process speed. 
+The following hyper parameters are the starting point:
 ```
 config= {
-    "state_size": len(state),
-    "action_size": brain.vector_action_space_size,
-    "seed": seed,
     "actor_lr": 0.001,
     "critic_lr": 0.001,
     "actor_nodes": [256, 256],
     "critic_nodes": [256, 256],
-    "batch_size": 256,
+    "batch_size": 128,
     "memory_size": 100000,
     "discount": 0.9,
     "sigma": 0.2, # OUNoise
     "tau": 0.001,
-    "epsilon": 1.0,
-    "epsilon_decay": 1e-6,
 }
 ```
 

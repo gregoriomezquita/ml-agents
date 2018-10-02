@@ -1,8 +1,9 @@
 # Reacher project report.
 
 ## First steps
-I started out with a vanilla Deep Deterministic Policy Gradient (DDPG) agent. Actor and Critc networks have two hidden layers comprised of 64 nodes each. 
-To follow the examples you have to execute the python notebook [Navigation.ipynb](Navigation.ipynb). The agent is implemented in [ddpg.py](ddpg.py) which in turn needs [actorcritic.py](actorcritic.py) to define the network.
+I started out with a vanilla Deep Deterministic Policy Gradient (DDPG) agent from [Udacity Deep Learning Nanodegree repository](https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-bipedal) for OpenAI Gym's BipedalWalker environment. 
+Actor and Critc networks have two hidden layers comprised of 64 nodes each. 
+To follow the examples you have to execute the python notebook [Continuous_Control.ipynb](Continuous_Control.ipynb). The agent is implemented in [ddpg.py](ddpg.py) which in turn needs [model.py](model.py) to define the network.
 At the end of the notebook there is a cell to execute the last agent saved in the **last_actor.pth** file.
 
 With the following hyper parameters the 'vanilla' agent learn the task in **375** episodes:

@@ -32,7 +32,7 @@ However, we can make a comparison of different values of each parameter to try t
 ### Diferent types of initialization
 ![](images/DDPG-init.png)
 ### Diferent batch sizes
-![](images/DDPG-init.png)
+![](images/DDPG-batches.png)
 ### Epsilon + noise
 ```
 config= {

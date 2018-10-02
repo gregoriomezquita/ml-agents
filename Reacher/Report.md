@@ -24,6 +24,7 @@ config= {
 ## Hyperparameters selection
 Choosing hyperparameters is not an easy task since the number of possibilities is very high. There is no systematic method and it is one of the biggest challenges of the current DRL. Frequently choosing a suitable parameter can mean the difference between the agent learning or not at all.
 However, we can make a comparison of different values of each parameter to try to face the question.
+To make it faster, the comparison will be made in the first 300 episodes.
 
 ### Number of nodes comparison
 ![](images/DDPG-Vanilla-Nodes.png)
@@ -33,6 +34,8 @@ However, we can make a comparison of different values of each parameter to try t
 ![](images/DDPG-init.png)
 ### Diferent batch sizes
 ![](images/DDPG-batches.png)
+### Noise: standard deviation (sigma)
+![](images/DDPG-sigma.png)
 ### Epsilon + noise
 ```
 config= {

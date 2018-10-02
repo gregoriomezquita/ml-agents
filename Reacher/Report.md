@@ -3,6 +3,7 @@ PPO and DDPG stand out among the different algorithms that we can choose to face
 DDPG has been chosen because it generally presents a better behavior and stability although at the expense of greater computing resources.
 To follow this project you can execute the python notebook [Continuous_Control.ipynb](Continuous_Control.ipynb). The agent is implemented in [ddpg.py](ddpg.py) which in turn needs [model.py](model.py) to define the network.
 At the end of the notebook there is a cell to execute the last agent saved in the **last_actor.pth** file as well as a cell to compare diferent configurations in the same plot.
+It is considered that the agent has learned when it gets a +30 reward for 100 episodes.
 ## First steps
 I started out with a Deep Deterministic Policy Gradient (DDPG) agent from [Udacity Deep Learning Nanodegree repository](https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-bipedal) for OpenAI Gym's BipedalWalker environment. 
 I have reduced the number of fully connected layers from 3 to 2 in the definition of the critic to reduce complexity and gain a bit in process speed. 
@@ -20,9 +21,9 @@ config= {
     "tau": 0.001,
 }
 ```
-
-It is considered that the agent has learned when it gets a +30 reward for 100 episodes.
-
+## Hyperparameters selection
+Choosing hyperparameters is not an easy task since the number of possibilities is very high. There is no systematic method and it is one of the biggest challenges of the current DRL. Frequently choosing a suitable parameter can mean the difference between the agent learning or not at all.
+However, we can make a comparison of different values of each parameter to try to face the question.
 
 ### Number of nodes comparison
 ![](images/DDPG-Vanilla-Nodes.png)
@@ -30,13 +31,11 @@ It is considered that the agent has learned when it gets a +30 reward for 100 ep
 ![](images/DPG-BatchNorm-Nodes.png)
 ### Diferent types of initialization
 ![](images/DDPG-init.png)
+### Diferent batch sizes
+![](images/DDPG-init.png)
 ### Epsilon + noise
 ```
 config= {
-    "label": "Epsilon=1.0 + noise",
-    "state_size": len(state),
-    "action_size": brain.vector_action_space_size,
-    "seed": seed,
     "actor_lr": 0.001,
     "critic_lr": 0.001,
     "actor_nodes": [256, 256],
@@ -52,25 +51,6 @@ config= {
 ```
 ![](images/DDPG-epsilon.png)
 ----
-I let the agent continue its training after solving the task for a total of **500 or 1000** episodes or it reaches an average score of **15** per 100 episodes.
-
-After playing a bit with the hyperparameters, you can get the agent to learn the task in up to **172 episodes** with:
-**2 hidden layers of 128 and 256 nodes, batch size= 256, learning rate= 1e-4, discount factor= 0.99, epsilon start= 0.1, epsilon end= 0.0001, target updates= 3 steps**
-
-
-![](images/172.png)
-
-There are some improvements in the literature to try to overcome the algorithm of deep q-learning. This is Prioritized Experiece Replay, Double Q-Learning and Dueling DQN. All of them have been implemented and will be compared, fixing as hyper parameters the last ones that have given the best results in terms of learning speed (172 episodes).
-In the file [dqn_agent.py](dqn_agent.py) you can choose these improvements by modifying the following constants:
-```
-SIMPLE_DQN= True        # Simple DQN. If not Double DQN
-PER = False             # Prioritized Experience Replay
-DUELING_DQN= False      # dueling DQN
-```
-
-
-
-
 
 ## Conclusions
 + No fundamental advantage has been found with DDQN or with PER or Dueling over DQN.

@@ -62,9 +62,8 @@ Llevado a limite, el agente es capaz de aprender completamente la tarea eliminan
 Esto podria explicarse porque este entorno no ofrece muchas variaciones de movimientos del objetivo.
 Su comportamiento es bastante bueno:
 
-![](images/DDPG-no-noise.gif?style=centerme)
 <p align="center">
-  <img width="460" height="300" src="http://www.fillmurray.com/460/300">
+  <img width="460" height="300" src="images/DDPG-no-noise.gif">
 </p>
 
 De alguna forma la red es capaz de aprender todas las posibilidades que ofrece el entorno.

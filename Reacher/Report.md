@@ -63,6 +63,9 @@ Esto podria explicarse porque este entorno no ofrece muchas variaciones de movim
 Su comportamiento es bastante bueno:
 
 ![](images/DDPG-no-noise.gif?style=centerme)
+<p align="center">
+  <img width="460" height="300" src="http://www.fillmurray.com/460/300">
+</p>
 
 De alguna forma la red es capaz de aprender todas las posibilidades que ofrece el entorno.
 Que pasaria si redujeramos los nodos del actor para ver hasta donde es capaz de seguir aprendiendo.

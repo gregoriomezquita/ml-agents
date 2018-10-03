@@ -37,23 +37,20 @@ To make it faster, the comparison will be made in the first 300 episodes.
 ![](images/DDPG-batches.png)
 ### Noise: standard deviation (sigma)
 ![](images/DDPG-sigma.png)
-### Epsilon + noise
+### Learning rate
 ```
 config= {
-    "actor_lr": 0.001,
     "critic_lr": 0.001,
     "actor_nodes": [256, 256],
     "critic_nodes": [256, 256],
-    "batch_size": 256,
+    "batch_size": 512,
     "memory_size": 100000,
     "discount": 0.9,
-    "sigma": 0.2, # OUNoise
+    "sigma": 0.1, # OUNoise
     "tau": 0.001,
-    "epsilon": 1.0,
-    "epsilon_decay": 1e-6,
 }
 ```
-![](images/DDPG-epsilon.png)
+![](images/DDPG-actor_lr.png)
 ----
 
 ## Conclusions

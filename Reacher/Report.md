@@ -61,7 +61,9 @@ config= {
 Llevado a limite, el agente es capaz de aprender completamente la tarea eliminando completamete el ruido exploratorio en la fase de aprendizaje. Es justo lo contrario de lo que uno espera.
 Esto podria explicarse porque este entorno no ofrece muchas variaciones de movimientos del objetivo.
 Su comportamiento es bastante bueno:
+
 ![](images/DDPG-no-noise.gif)
+
 De alguna forma la red es capaz de aprender todas las posibilidades que ofrece el entorno.
 Que pasaria si redujeramos los nodos del actor para ver hasta donde es capaz de seguir aprendiendo.
 + It's amazing how quickly an agent can learn by itself with deep q-learning in a complex task.

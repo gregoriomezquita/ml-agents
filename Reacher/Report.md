@@ -71,4 +71,5 @@ Que pasaria si redujeramos los nodos del actor para ver hasta donde es capaz de 
 + It's amazing how quickly an agent can learn by itself with deep q-learning in a complex task.
 
 ## Improvements
-+ To soften the movement of the agent, the reward could be modified depending on whether the lateral movements are very abrupt. In such a case, the reward could be reduced proportionally to lateral movement. The same could also be done in the case of the advance.
++ Several agents running in parallel will surely improve both the learning time and the variability of the experience the agent receive.
++ In that case, there are algorithms like [PPO](https://arxiv.org/pdf/1707.06347.pdf), [A3C](https://arxiv.org/pdf/1602.01783.pdf), and [D4PG](https://openreview.net/pdf?id=SyZipzbCb) that use multiple (non-interacting, parallel) copies of the same agent to distribute the task of gathering experience.

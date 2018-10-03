@@ -38,6 +38,7 @@ To make it faster, the comparison will be made in the first 300 episodes.
 ### Noise: standard deviation (sigma)
 ![](images/DDPG-sigma.png)
 ### Learning rate
+Vamos a introducir los mejores resultados anteriores para comenzar a ver el efecto del learning rate:
 ```
 config= {
     "critic_lr": 0.001,
@@ -54,10 +55,15 @@ config= {
 ----
 
 ## Conclusions
-+ No fundamental advantage has been found with DDQN or with PER or Dueling over DQN.
-With certain DQN hyperparameters, it turns out to be better in terms of learning speed, reaching **172 episodes at best**.
-+ In all cases, learning is very unstable, with the reward graph being very noisy, although there is generally a steady progress up to 13 and then it stabilizes.
-+ The agent behaves surprisingly well once it has learned the task although sometimes its movement is a little abrupt. Also sometimes it gets stuck making an oscillating movement without being able to decide which way to go.
++ Network definitions, initializer and batch normalization have been key elements for the agent to start learning.
++ Revisar sistematicamente lo hyperparametros ayuda a mejorar el aprendizaje del agente aunque no asegura encontrar los valores optimos.
++ El agente es sorprendemente sensible al ruido introducido para randomizar la exploracion de las acciones. Cuanto mas reducimos la desviacion tipica, es decir, noise variance, mas rapidamente aprende el agente.
+Llevado a limite, el agente es capaz de aprender completamente la tarea eliminando completamete el ruido exploratorio en la fase de aprendizaje. Es justo lo contrario de lo que uno espera.
+Esto podria explicarse porque este entorno no ofrece muchas variaciones de movimientos del objetivo.
+Su comportamiento es bastante bueno:
+![](images/DDPG-no-noise.gif)
+De alguna forma la red es capaz de aprender todas las posibilidades que ofrece el entorno.
+Que pasaria si redujeramos los nodos del actor para ver hasta donde es capaz de seguir aprendiendo.
 + It's amazing how quickly an agent can learn by itself with deep q-learning in a complex task.
 
 ## Improvements

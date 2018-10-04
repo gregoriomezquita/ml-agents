@@ -86,14 +86,13 @@ Let's see how this agent behaves:
 
 with a **final score of 36.4**.
 
-----
+### What if...
 
 Now let's see if we can improve the agent by reducing actor's nodes:
 ```
 config= {
     "actor_lr": 0.001,
     "critic_lr": 0.001,
-    "actor_nodes": [32, 32],
     "critic_nodes": [128, 128],
     "batch_size": 256,
     "memory_size": 100000,
@@ -102,7 +101,23 @@ config= {
     "tau": 0.001,
 }
 ```
+![](images/DDPG-actor-nodes.png)
 
+### Solutiion
+With the followinf hyperparamters
+```
+config= {
+    "actor_lr": 0.001,
+    "critic_lr": 0.001,
+     "actor_nodes": [32, 32],
+    "critic_nodes": [128, 128],
+    "batch_size": 256,
+    "memory_size": 100000,
+    "discount": 0.9,
+    "sigma": 0.0,
+    "tau": 0.001,
+}
+```
 <p align="center">
   <img width="460" height="300" src="images/DDPG-nodes-32.png">
 </p>
@@ -112,7 +127,7 @@ Elapsed time is now much less than before with the same results and the followin
 </p>
 
 Reducing the nodes of the actor to 16 does not allow the agent to learn so quickly:
-![](images/DDPG-actor-nodes.png)
+
 
 ## Conclusions
 + Network definitions, initializer and batch normalization have been key elements for the agent to start learning.

@@ -103,8 +103,8 @@ config= {
 ```
 ![](images/DDPG-actor-nodes.png)
 
-### Solutiion
-With the followinf hyperparamters
+### Solution
+With the following hyperparamters:
 ```
 config= {
     "actor_lr": 0.001,
@@ -121,13 +121,13 @@ config= {
 <p align="center">
   <img width="460" height="300" src="images/DDPG-nodes-32.png">
 </p>
-Elapsed time is now much less than before with the same results and the following is the agent in action:
+Elapsed time is now much less than before with even better results and the following is the agent in action:
+
 <p align="center">
   <img width="460" height="300" src="images/DDPG-sigma-0-nodes-32.gif">
 </p>
 
-Reducing the nodes of the actor to 16 does not allow the agent to learn so quickly:
-
+### The agent is able to learn the task in **36 episodes**
 
 ## Conclusions
 + Network definitions, initializer and batch normalization have been key elements for the agent to start learning.

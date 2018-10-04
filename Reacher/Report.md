@@ -54,6 +54,20 @@ Actor:
 Critic:
 ![](images/DDPG-critic_lr.png)
 
+So finally let's set hyperparameters:
+```
+config= {
+    "actor_lr": 0.001,
+    "critic_lr": 0.001,
+    "actor_nodes": [256, 256],
+    "critic_nodes": [256, 256],
+    "batch_size": 512,
+    "memory_size": 100000,
+    "discount": 0.9,
+    "sigma": 0.1, # OUNoise
+    "tau": 0.001,
+}
+```
 Resultado:
 
 <p align="center">
@@ -64,6 +78,8 @@ Let's see how this agent behaves:
 <p align="center">
   <img width="460" height="300" src="images/DDPG-sigma-0.1.gif">
 </p>
+
+with a **final score of 36.4**.
 ----
 
 ## Conclusions

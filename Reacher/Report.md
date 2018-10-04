@@ -102,7 +102,11 @@ Now let's see in we can improve the agent by reducing the nodes:
 <p align="center">
   <img width="460" height="300" src="images/DDPG-nodes-32.png">
 </p>
-Elapsed time is now much less than before with the same results.
+Elapsed time is now much less than before with the same results and the following is the agent in action:
+<p align="center">
+  <img width="460" height="300" src="images/DDPG-sigma-0-nodes-32.png">
+</p>
+
 
 ## Conclusions
 + Network definitions, initializer and batch normalization have been key elements for the agent to start learning.

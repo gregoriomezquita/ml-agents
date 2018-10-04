@@ -131,6 +131,8 @@ config= {
 
 ### The agent is able to learn the task in **36 episodes**
 
+---
+
 ## Conclusions
 + Network definitions, initializer and batch normalization have been key elements for the agent to start learning.
 + Revisar sistematicamente lo hyperparametros ayuda a mejorar el aprendizaje del agente aunque no asegura encontrar los valores optimos.

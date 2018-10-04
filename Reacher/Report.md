@@ -7,11 +7,11 @@ The third and last cell is to see how the agent behaves once trained.
 It is considered that the agent has learned when it gets a +30 reward for 100 episodes.
 ## First steps
 I started out with a [Deep Deterministic Policy Gradient (DDPG)](https://arxiv.org/abs/1509.02971) agent from [Udacity Deep Learning Nanodegree repository](https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-bipedal) for OpenAI Gym's BipedalWalker environment. 
-I have reduced the number of fully connected layers from 4 to 32 in the definition of the critic to reduce complexity and gain a bit in process speed.
+I have reduced the number of fully connected layers from 4 to 3 in the definition of the critic to reduce complexity and gain a bit in process speed.
 Finally the Actor consists of 3 fully connected layers with Relu activations and a final Tanh non-linear output.
 The Critic has also 3 fully connected layers with Relu activations.
  
-The following hyper parameters are the starting point:
+The following hyperparameters are the starting point:
 ```
 config= {
     "actor_lr": 0.001,
@@ -86,7 +86,7 @@ Let's see how this agent behaves:
   <img width="460" height="300" src="images/DDPG-sigma-0.1.gif">
 </p>
 
-with a **final score of 36.4**.
+<p align="center">with a final score of 36.4.</p>
 
 ### What if...
 

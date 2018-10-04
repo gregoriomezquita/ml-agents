@@ -56,7 +56,9 @@ Critic:
 
 Resultado:
 
-![](images/DDPG-sigma-1.png)
+<p align="center">
+  <img width="460" height="300" src="images/DDPG-sigma-1.png">
+</p>
 ----
 
 ## Conclusions

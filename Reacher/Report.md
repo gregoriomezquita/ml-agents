@@ -88,8 +88,9 @@ with a **final score of 36.4**.
 
 ----
 
-Now let's see in we can improve the agent by reducing the nodes:
-```config= {
+Now let's see if we can improve the agent by reducing actor's nodes:
+```
+config= {
     "actor_lr": 0.001,
     "critic_lr": 0.001,
     "actor_nodes": [32, 32],

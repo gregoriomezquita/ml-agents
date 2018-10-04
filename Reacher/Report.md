@@ -1,7 +1,5 @@
 # Reacher project report.
 In this paper we are going to do an analysis of the DDPG algorithm in the Reacher environment of ml-agents.
-PPO and DDPG stand out among the different algorithms that we can choose to face a control problem with a continuous space.
-DDPG has been chosen because it generally presents a better behavior and stability although at the expense of greater computing resources.
 To follow this project you can execute the python notebook [Continuous_Control.ipynb](Continuous_Control.ipynb). The agent is implemented in [ddpg.py](ddpg.py) which in turn needs [model.py](model.py) to define the network.
 At the end of the notebook there is a cell to execute the last agent saved in the **last_actor.pth** file as well as a cell to compare diferent configurations in the same plot.
 It is considered that the agent has learned when it gets a +30 reward for 100 episodes.
@@ -51,7 +49,10 @@ config= {
     "tau": 0.001,
 }
 ```
+Actor:
 ![](images/DDPG-actor_lr.png)
+Critic:
+![](images/DDPG-critic_lr.png)
 ----
 
 ## Conclusions

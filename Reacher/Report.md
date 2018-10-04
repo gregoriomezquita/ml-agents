@@ -124,7 +124,7 @@ config= {
   <img width="460" height="300" src="images/DDPG-nodes-32.png">
 </p>
 
-**Elapsed time is now much lower than before (-61 %) with even better results** and the following is the agent in action:
+**Elapsed time is now much lower than before (-39 %) with even better results** and the following is the agent in action:
 
 
 <p align="center">

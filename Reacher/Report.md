@@ -135,20 +135,12 @@ config= {
 
 ## Conclusions
 + Network definitions, initializer and batch normalization have been key elements for the agent to start learning.
-+ Revisar sistematicamente lo hyperparametros ayuda a mejorar el aprendizaje del agente aunque no asegura encontrar los valores optimos.
-+ El agente es sorprendemente sensible al ruido introducido para randomizar la exploracion de las acciones. Cuanto mas reducimos la desviacion tipica, es decir, noise variance, mas rapidamente aprende el agente.
-Llevado a limite, el agente es capaz de aprender completamente la tarea eliminando completamete el ruido exploratorio en la fase de aprendizaje. Es justo lo contrario de lo que uno espera.
-Esto podria explicarse porque este entorno no ofrece muchas variaciones de movimientos del objetivo.
-Su comportamiento es bastante bueno:
-
-<p align="center">
-  <img width="460" height="300" src="images/DDPG-no-noise.gif">
-</p>
-
-De alguna forma la red es capaz de aprender todas las posibilidades que ofrece el entorno.
-Que pasaria si redujeramos los nodos del actor para ver hasta donde es capaz de seguir aprendiendo.
-+ It's amazing how quickly an agent can learn by itself with deep q-learning in a complex task.
++ Systematically reviewing the hyperparameters helps to improve the agent's learning although it does not assure to find the optimal values.
++ The agent is surprisingly sensitive to the noise introduced to randomize the exploration of the actions. The more we reduce the typical deviation, that is, noise variance, the more quickly the agent learns.
++ Contrary to what one expects, the agent is able to fully learn the task by completely eliminating the exploratory noise in the learning phase. This could be explained because this environment does not offer many variations of objective movements.
++ It's amazing how quickly an agent can learn by itself with DDPG in a complex task.
 
 ## Improvements
++ Frecuently [adding parameter noise is better than adding action noise](https://blog.openai.com/better-exploration-with-parameter-noise/)
 + Several agents running in parallel will surely improve both the learning time and the variability of the experience the agent receive.
 + In that case, there are algorithms like [PPO](https://arxiv.org/pdf/1707.06347.pdf), [A3C](https://arxiv.org/pdf/1602.01783.pdf), and [D4PG](https://openreview.net/pdf?id=SyZipzbCb) that use multiple (non-interacting, parallel) copies of the same agent to distribute the task of gathering experience.

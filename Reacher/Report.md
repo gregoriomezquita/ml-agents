@@ -82,7 +82,22 @@ Let's see how this agent behaves:
 </p>
 
 with a **final score of 36.4**.
+
 ----
+
+Now let's see in we can improve the agent by reducing the nodes:
+```config= {
+    "actor_lr": 0.001,
+    "critic_lr": 0.001,
+    "actor_nodes": [32, 32],
+    "critic_nodes": [128, 128],
+    "batch_size": 256,
+    "memory_size": 100000,
+    "discount": 0.9,
+    "sigma": 0.0, # OUNoise
+    "tau": 0.001,
+}
+```
 
 ## Conclusions
 + Network definitions, initializer and batch normalization have been key elements for the agent to start learning.

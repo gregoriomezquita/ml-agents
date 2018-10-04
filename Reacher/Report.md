@@ -121,7 +121,9 @@ config= {
 <p align="center">
   <img width="460" height="300" src="images/DDPG-nodes-32.png">
 </p>
+
 Elapsed time is now much less than before with even better results and the following is the agent in action:
+
 
 <p align="center">
   <img width="460" height="300" src="images/DDPG-sigma-0-nodes-32.gif">

@@ -4,10 +4,10 @@
 [image2]: https://user-images.githubusercontent.com/10624937/43851646-d899bf20-9b00-11e8-858c-29b5c2c94ccc.png "Crawler"
 
 
-# Project 2: Continuous Control
+# Project: Continuous Control
 
 ### Introduction
-
+This project is part of the [Udacity Deep Reinforcement Learning Nanodegree](https://www.udacity.com/course/deep-reinforcement-learning-nanodegree--nd893).
 For this project, you will work with the [Reacher](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher) environment.
 
 ![Trained Agent][image1]
@@ -39,6 +39,9 @@ The barrier for solving the second version of the environment is slightly differ
 - This yields an **average score** for each episode (where the average is over all 20 agents).
 
 The environment is considered solved, when the average (over 100 episodes) of those average scores is at least +30. 
+
+### Dependencies
+If you haven't already, please follow the [instructions in the DRLND GitHub repository](https://github.com/udacity/deep-reinforcement-learning#dependencies) to set up your Python environment. These instructions can be found in README.md at the root of the repository. By following these instructions, you will install PyTorch, the ML-Agents toolkit, and a few more Python packages required to complete the project.
 
 ### Getting Started
 

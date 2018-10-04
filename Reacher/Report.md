@@ -1,7 +1,9 @@
 # Reacher project report.
-In this paper we are going to do an analysis of the DDPG algorithm in the Reacher environment of ml-agents.
+In this paper we are going to do an analysis of the DDPG algorithm in the Reacher environment of [Unity ML-Agents](https://github.com/Unity-Technologies/ml-agents).
 To follow this project you can execute the python notebook [Continuous_Control.ipynb](Continuous_Control.ipynb). The agent is implemented in [ddpg.py](ddpg.py) which in turn needs [model.py](model.py) to define the network.
-At the end of the notebook there is a cell to execute the last agent saved in the **last_actor.pth** file as well as a cell to compare diferent configurations in the same plot.
+The first cell of the notebook is to set the environment plus some functions to make the code easier.
+In the second code cell is where the agent is trained to learn the task acording with a certain hyperparameters.
+The third and last cell is to see how the agent behaves once trained.
 It is considered that the agent has learned when it gets a +30 reward for 100 episodes.
 ## First steps
 I started out with a Deep Deterministic Policy Gradient (DDPG) agent from [Udacity Deep Learning Nanodegree repository](https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-bipedal) for OpenAI Gym's BipedalWalker environment. 

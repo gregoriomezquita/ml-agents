@@ -49,7 +49,7 @@ config= {
     "tau": 0.001,
 }
 ```
-<p align="center">Actor:</p>
+Actor:
 ![](images/DDPG-actor_lr.png)
 Critic:
 ![](images/DDPG-critic_lr.png)

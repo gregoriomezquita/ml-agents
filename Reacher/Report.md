@@ -55,6 +55,10 @@ Critic:
 ![](images/DDPG-critic_lr.png)
 ----
 
+Resultado:
+![](images/DDPG-sigma-1.png)
+
+
 ## Conclusions
 + Network definitions, initializer and batch normalization have been key elements for the agent to start learning.
 + Revisar sistematicamente lo hyperparametros ayuda a mejorar el aprendizaje del agente aunque no asegura encontrar los valores optimos.

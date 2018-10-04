@@ -59,6 +59,11 @@ Resultado:
 <p align="center">
   <img width="460" height="300" src="images/DDPG-sigma-1.png">
 </p>
+Let's see how this agent behaves:
+
+<p align="center">
+  <img width="460" height="300" src="images/DDPG-sigma-0.1.gif">
+</p>
 ----
 
 ## Conclusions

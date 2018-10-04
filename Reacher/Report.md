@@ -108,7 +108,7 @@ Elapsed time is now much less than before with the same results and the followin
 </p>
 
 Reducing the nodes of the actor to 16 does not allow the agent to learn so quickly:
-<p align="center">
+<p>
   <img width="460" height="300" src="images/DDPG-actor-nodes.png">
 </p>
 

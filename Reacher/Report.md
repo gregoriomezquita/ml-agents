@@ -86,7 +86,7 @@ Let's see how this agent behaves:
   <img width="460" height="300" src="images/DDPG-sigma-0.1.gif">
 </p>
 
-<p align="center">with a final score of 36.4.</p>
+<p align="center">with a final running score of 36.4.</p>
 
 ### What if...
 
@@ -124,7 +124,7 @@ config= {
   <img width="460" height="300" src="images/DDPG-nodes-32.png">
 </p>
 
-**Elapsed time is now much lower than before with even better results** and the following is the agent in action:
+**Elapsed time is now much lower than before (-61 %) with even better results** and the following is the agent in action:
 
 
 <p align="center">

@@ -18,11 +18,6 @@ from model import Actor, Critic
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-def deepcopy(target, source):
-  for target_param, param in zip(target.parameters(), source.parameters()):
-    target_param.data.copy_(param.data)
-
-
 class DDPG:
   def __init__(self, **kwargs):
     
@@ -41,8 +36,6 @@ class DDPG:
     self.state_size = self.config["state_size"]
     self.action_size = self.config["action_size"]
     memory_size = self.config["memory_size"]
-    self.epsilon = self.config["epsilon"]
-    self.epsilon_decay = self.config["epsilon_decay"]
     actor_lr = self.config["actor_lr"]
     critic_lr = self.config["critic_lr"]
     self.batch_size = self.config["batch_size"]
@@ -93,7 +86,6 @@ class DDPG:
       action = self.actor(state).cpu().data.numpy()
     self.actor.train()
     if add_noise:
-        #action += self.epsilon * self.noise.sample()
         action += self.noise.sample()
     return np.clip(action, -1, 1)
     
@@ -133,9 +125,6 @@ class DDPG:
     # ----------------------- update target networks ----------------------- #
     self.soft_update(self.critic, self.targetCritic, self.tau)
     self.soft_update(self.actor, self.targetActor, self.tau) 
-    
-    if self.epsilon > 0: self.epsilon -= self.epsilon_decay
-    else: self.epsilon= 0
     
   def reset(self):
     self.noise.reset()

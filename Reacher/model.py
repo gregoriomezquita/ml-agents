@@ -46,17 +46,6 @@ class Actor(nn.Module):
         #m.weight.data= fanin_init(m.weight.data.size())
         m.bias.data.fill_(0.1)
 
-class NoisyModule(nn.Module):
-
-  def __init__(self, module):
-    super(NoisyModule, self).__init__()
-    self.module = module
-    for param in self.module.parameters():
-      sigma_param = Parameter(torch.Tensor(param.size()))
-      epsilon_param = Parameter(torch.Tensor(param.size()))
-      self.register_parameter("sigma_"+param.name, sigma_param)
-      self.register_buffer("epsilon_"+param.name, epsilon_param)
-        
 """
     Critic
 """

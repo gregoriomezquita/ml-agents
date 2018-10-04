@@ -1,13 +1,16 @@
 # Reacher project report.
-In this paper we are going to do an analysis of the DDPG algorithm in the Reacher environment of [Unity ML-Agents](https://github.com/Unity-Technologies/ml-agents).
+In this paper we are going to do an analysis of the DDPG algorithm in the Reacher environment of [Unity ML-Agents](https://github.com/Unity-Technologies/ml-agents) with only **1 agent (Option 1)**.
 To follow this project you can execute the python notebook [Continuous_Control.ipynb](Continuous_Control.ipynb). The agent is implemented in [ddpg.py](ddpg.py) which in turn needs [model.py](model.py) to define the network.
 The first cell of the notebook is to set the environment plus some functions to make the code easier.
 In the second code cell is where the agent is trained to learn the task acording with a certain hyperparameters.
 The third and last cell is to see how the agent behaves once trained.
 It is considered that the agent has learned when it gets a +30 reward for 100 episodes.
 ## First steps
-I started out with a Deep Deterministic Policy Gradient (DDPG) agent from [Udacity Deep Learning Nanodegree repository](https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-bipedal) for OpenAI Gym's BipedalWalker environment. 
-I have reduced the number of fully connected layers from 3 to 2 in the definition of the critic to reduce complexity and gain a bit in process speed. 
+I started out with a [Deep Deterministic Policy Gradient (DDPG)](https://arxiv.org/abs/1509.02971) agent from [Udacity Deep Learning Nanodegree repository](https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-bipedal) for OpenAI Gym's BipedalWalker environment. 
+I have reduced the number of fully connected layers from 4 to 32 in the definition of the critic to reduce complexity and gain a bit in process speed.
+Finally the Actor consists of 3 fully connected layers with Relu activations and a final Tanh non-linear output.
+The Critic has also 3 fully connected layers with Relu activations.
+ 
 The following hyper parameters are the starting point:
 ```
 config= {
@@ -23,7 +26,7 @@ config= {
 }
 ```
 ## Hyperparameters selection
-Choosing hyperparameters is not an easy task since the number of possibilities is very high. There is no systematic method and it is one of the biggest challenges of the current DRL. Frequently choosing a suitable parameter can mean the difference between the agent learning or not at all.
+Choosing hyperparameters is not an easy task since the number of possibilities are very high. There is no systematic method and it is one of the biggest challenges of the current DRL. Frequently choosing a suitable parameter can mean the difference between the agent learning or not at all.
 However, we can make a comparison of different values of each parameter to try to face the question.
 To make it faster, the comparison will be made in the first 300 episodes.
 
@@ -38,7 +41,7 @@ To make it faster, the comparison will be made in the first 300 episodes.
 ### Noise: standard deviation (sigma)
 ![](images/DDPG-sigma.png)
 ### Learning rate
-Vamos a introducir los mejores resultados anteriores para comenzar a ver el efecto del learning rate:
+We will introduce the best previous results to begin to see the learning rate effect:
 ```
 config= {
     "critic_lr": 0.001,

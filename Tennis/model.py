@@ -7,27 +7,30 @@ import torch.nn as nn
 import numpy as np
 from noisy import NoisyLinear
 
-nn.NoisyLinear= NoisyLinear
-
 """
     Actor
 """
 class Actor(nn.Module):
 
-  def __init__(self, state_size, action_size, nodes= [64, 64], seed= 0.0):
+  def __init__(self, state_size, action_size, nodes= [32, 32], seed= 0.0, param_noise= False):
     super(Actor, self).__init__()
     
     self.seed= torch.manual_seed(seed)   #  Already done in agent initialization
     
+    if param_noise: 
+      FCL= NoisyLinear
+    else:
+      FCL= nn.Linear
+    
     self.model= nn.Sequential(
       nn.BatchNorm1d(state_size),
-      nn.NoisyLinear(state_size, nodes[0]),
+      FCL(state_size, nodes[0]),
       nn.ReLU(),
       nn.BatchNorm1d(nodes[0]),
-      nn.NoisyLinear(nodes[0], nodes[1]),
+      FCL(nodes[0], nodes[1]),
       nn.ReLU(),
       nn.BatchNorm1d(nodes[1]),
-      nn.NoisyLinear(nodes[1], action_size),
+      FCL(nodes[1], action_size),
       nn.Tanh()
     ) 
     
@@ -79,37 +82,4 @@ class Critic(nn.Module):
     if type(m) == nn.Linear:
         nn.init.xavier_uniform_(m.weight)
         m.bias.data.fill_(0.1)
-
-"""
-    Noisy
-"""
-class NoisyActor(nn.Module):
-
-  def __init__(self, state_size, action_size, nodes= [64, 64], seed= 0.0):
-    super(NoisyActor, self).__init__()
-    
-    self.seed= torch.manual_seed(seed)   #  Already done in agent initialization
-    
-    self.model= nn.Sequential(
-      #nn.BatchNorm1d(state_size),
-      nn.Linear(state_size, nodes[0]),
-      #nn.LayerNorm(nodes[0]),
-      nn.ReLU(),
-      #nn.BatchNorm1d(nodes[0]),
-      nn.Linear(nodes[0], nodes[1]),
-      #nn.LayerNorm(nodes[1]),
-      nn.ReLU(),
-      #nn.BatchNorm1d(nodes[1]),
-      nn.Linear(nodes[1], action_size),
-      nn.Tanh()
-    ) 
-    
-    self.model.apply(self.init_weights)
-    
-  def forward(self, state):  
-    return self.model(state)
-
-  def init_weights(self, m):
-    if type(m) == nn.Linear:
-        nn.init.xavier_uniform_(m.weight)
-        m.bias.data.fill_(0.1)        
+     

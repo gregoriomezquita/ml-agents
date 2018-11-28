@@ -4,26 +4,22 @@ import torch.nn.functional as F
 
         
 class QNetwork(nn.Module):
-    def __init__(self, input_size, output_size, seed, hidden_size= 128):
+  def __init__(self, state_size, action_size, seed, nodes= [128, 256]):
     
-        super(QNetwork, self).__init__()
+    super(QNetwork, self).__init__()
         
-        self.input_size = input_size
-        self.hidden_size = hidden_size
-        self.output_size = output_size
-        self.seed = torch.manual_seed(seed)
-        self.model= nn.Sequential(
-            nn.Linear(self.input_size, self.hidden_size),
-            nn.ReLU(),
-            nn.Linear(self.hidden_size, self.hidden_size * 2),
-            nn.ReLU(),
-            )
-        self.fc_out = nn.Linear(self.hidden_size * 2, self.output_size)
+    self.seed = torch.manual_seed(seed)
+        
+    self.model= nn.Sequential(
+      nn.Linear(state_size, nodes[0]),
+      nn.ReLU(),
+      nn.Linear(nodes[0], nodes[1]),
+      nn.ReLU(),
+      nn.Linear(nodes[1], action_size)
+    )
 
-    def forward(self, state):
-        #x = state.view(-1, self.input_size)
-        h = self.model(state)
-        return self.fc_out(h)
+  def forward(self, state):
+    return self.model(state)
         
         
 class Dueling_QNetwork(nn.Module):

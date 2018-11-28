@@ -37,6 +37,7 @@ class Memory:  # stored as ( s, a, r, s_ ) in SumTree
 
             s = random.uniform(a, b)
             (idx, p, data) = self.tree.get(s)
+            if p== 0: continue
             priorities.append(p)
             batch.append(data)
             idxs.append(idx)
